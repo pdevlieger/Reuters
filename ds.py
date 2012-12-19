@@ -18,17 +18,54 @@ df2 = pd.DataFrame(d)
 
 ## We have all the data. Now look at some trends.
 
+#  => length of texts variation: day of the month/week, hour.
+
 def body_len(x):
 	if x:
 		if len(x)==0:
 			return None
 		return len(x)
 	else:
-		return None	
+		return None
 
-x = df2.groupby('DAY').mean()
+df2['BODYlen'] = df['BODY'].map(body_len)
 
-fig = x.HOUR.plot()
-savefig('foo.png')
-plt.show(x.HOUR.plot())
+df_daymon = df2.groupby('DAY_M').mean()
+df_dayyear = df2.groupby('DAY_Y').mean()
+df_hour = df2.groupby('HOUR').mean()
+
+# figure
+fig = plt.figure()
+# panel 1
+ax = fig.add_subplot(3,1,1)
+len_mon = df_daymon.BODYlen.plot()
+ax.set_title('Over the month')
+ax.set_xlabel('Day')
+# panel 2
+ax = fig.add_subplot(3,1,2)
+len_year = df_dayyear.BODYlen.plot()
+ax.set_title('Over the year')
+ax.set_xlabel('Day')
+# panel 3
+ax = fig.add_subplot(3,1,3)
+len_hour = df_hour.BODYlen.plot()
+ax.set_title('Over the day')
+ax.set_xlabel('Hour')
+fig.tight_layout()
+savefig('body_length.png')
+plt.show()
+
+#  => hour at which article is posted. TODO: makes this a bit nicer!
+# figure
+fig = plt.figure()
+# panel 1
+ax = fig.add_subplot(2,1,1)
+len_mon = df_daymon.HOUR.plot()
+ax.set_title('Over the month')
+# panel 2
+ax = fig.add_subplot(2,1,2)
+len_year = df_dayyear.HOUR.plot()
+ax.set_title('Over the month')
+savefig('hour_posted.png')
+plt.show()
 
