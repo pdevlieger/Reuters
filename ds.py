@@ -2,6 +2,8 @@ from reut import get_data
 import pandas as pd
 import matplotlib.pyplot as plt
 from pylab import savefig
+from string import count as strcount
+from functools import partial
 
 data = get_data()
 
@@ -16,19 +18,23 @@ d = {'YEAR':pd.Series(df.YEAR, index=df.ID),'MONTH':pd.Series(df.MONTH, index=df
 
 df2 = pd.DataFrame(d)
 
+## ------------------------------------------------------------------------------------ ##
 ## We have all the data. Now look at some trends.
+## ------------------------------------------------------------------------------------ ##
+
 
 #  => length of texts variation: day of the month/week, hour.
+# -------------------------------------------------------------------------------------- #
 
 def body_len(x):
 	if x:
-		if len(x)==0:
+		if type(x)==float or len(x)==0:
 			return None
 		return len(x)
 	else:
 		return None
 
-df2['BODYlen'] = df['BODY'].map(body_len)
+df2['BODYlen'] = df2['BODY'].map(body_len)
 
 df_daymon = df2.groupby('DAY_M').mean()
 df_dayyear = df2.groupby('DAY_Y').mean()
@@ -55,17 +61,21 @@ fig.tight_layout()
 savefig('body_length.png')
 plt.show()
 
-#  => hour at which article is posted. TODO: makes this a bit nicer!
-# figure
-fig = plt.figure()
-# panel 1
-ax = fig.add_subplot(2,1,1)
-len_mon = df_daymon.HOUR.plot()
-ax.set_title('Over the month')
-# panel 2
-ax = fig.add_subplot(2,1,2)
-len_year = df_dayyear.HOUR.plot()
-ax.set_title('Over the month')
-savefig('hour_posted.png')
-plt.show()
+#  => Look for a specific word in the body of the article (or anywhere else).
+# -------------------------------------------------------------------------------------- #
 
+# Issue here: map or apply only works with 1-parameter functions (i.e. the element of the
+# series). For multiple arguments, this is the strategy to follow.
+
+def word_count(x):
+    if x and type(x) != float:
+        return string.count(x, 'crisis')
+    return 0
+
+df2['Word_count'] = df2.BODY.apply(word_count)
+
+df_wordcountday = df2.groupby('DAY_Y').mean()
+
+word_plot = df_wordcountday.Word_count.plot()
+savefig('word_count.png')
+plt.show()
