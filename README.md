@@ -1,4 +1,4 @@
-# h1 Reuters
+# Reuters
 =======
 
 Some newspaper article data processing, mainly to learn to deal with datetime data in python, analyze textual data and use pandas.
