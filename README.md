@@ -5,7 +5,7 @@ Some newspaper article data processing, mainly to learn to deal with datetime da
 
 ## reut.py
 
--
+--
 
 This file focuses on extracting the data and organizing it in a list of dictionnaries.
 * extract_id(string): takes the 'dirty' string as input. The index and ord function are combined to get the numbers between the <NEWID>...</NEWID> tags.
