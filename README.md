@@ -1,5 +1,7 @@
 Reuters
 =======
 
-some newspaper article data processing
+Some newspaper article data processing.
+
 source of sgm-files: http://www.daviddlewis.com/resources/testcollections/reuters21578/
+
