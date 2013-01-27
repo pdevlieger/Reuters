@@ -15,4 +15,6 @@ This file focuses on extracting the data and organizing it in a list of dictionn
 
 * get_article_components(raw_string): loops over extract_text_between_tags for the different article components
 
+## ds.py
+
 [Source of sgm-files](http://www.daviddlewis.com/resources/testcollections/reuters21578/)
