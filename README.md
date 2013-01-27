@@ -17,7 +17,8 @@ This file focuses on extracting the data and organizing it in a list of dictionn
 
 ## ds.py
 
-![Word count](https://github.com/uctpphd/Reuters/blob/master/word_count.png)
-![Body length](https://github.com/uctpphd/Reuters/blob/master/body_length.png)
+[logo]: https://github.com/uctpphd/Reuters/blob/master/word_count.png "Word count (for 'crisis')"
+[logo]: https://github.com/uctpphd/Reuters/blob/master/body_length.png "Body lenght (for different timings)"
+
 
 [Source of sgm-files](http://www.daviddlewis.com/resources/testcollections/reuters21578/)
