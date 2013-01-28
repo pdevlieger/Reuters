@@ -22,8 +22,8 @@ This file focuses on extracting the data and organizing it in a list of dictionn
 ![alt text][logo]
 [logo]: https://github.com/uctpphd/Reuters/blob/master/body_length.png "Body lenght (for different timings)"
 
-![Word count ("crisis)](https://github.com/uctpphd/Reuters/blob/master/word_count.png)
-![Body length](https://github.com/uctpphd/Reuters/blob/master/body_length.png)
+![Word count ("crisis)](https://raw.github.com/uctpphd/Reuters/master/word_count.png)
+![Body length](https://raw.github.com/uctpphd/Reuters/master/body_length.png)
 
 
 [Source of sgm-files](http://www.daviddlewis.com/resources/testcollections/reuters21578/)
