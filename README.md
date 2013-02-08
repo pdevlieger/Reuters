@@ -20,11 +20,11 @@ This file uses the actual data and provides some simple descriptive graphs (othe
 
 The first (set of) graphs give a quick overview of the length of the body (in characters) and how this changes over the course of a month, a year and a day. For the monthly graph, we see that there is a spike around day 15, 22 and 28. For the yearly graph, it shows the data is mostly centered between days 50 and 120 of the year and portrays some seasonality. The daily graph shows that articles during the day are shorter than graphs that are posted in the morning or evening (probably because these could be mainly updates).
 
-![Body length](https://raw.github.com/uctpphd/Reuters/master/body_length.png)
+![Body length](https://raw.github.com/pdevlieger/Reuters/master/body_length.png)
 
 A word count in the different articles. The word that was searched for is "crisis".
 
-![Word count ("crisis)](https://raw.github.com/uctpphd/Reuters/master/word_count.png)
+![Word count ("crisis)](https://raw.github.com/pdevlieger/Reuters/master/word_count.png)
 
 ## lessons learned
 
